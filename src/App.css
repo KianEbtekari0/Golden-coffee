@@ -1,38 +1,33 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Dana';
+    src: url(/public/fonts/Dana/woff2/Dana-Regular.woff2) format('woff2');
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+    font-family: 'Dana Medium';
+    src: url(/public/fonts/Dana/woff2/Dana-Medium.woff2) format('woff2');
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+    font-family: 'Dana DemiBold';
+    src: url(/public/fonts/Dana/woff2/Dana-DemiBold.woff2) format('woff2');
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@font-face {
+    font-family: 'Morabba Light';
+    src: url(/public/fonts/Morabba/woff2/Morabba-Light.woff2) format('woff2');
 }
 
-.App-link {
-  color: #61dafb;
+@font-face {
+    font-family: 'Morabba Medium';
+    src: url(/public/fonts/Morabba/woff2/Morabba-Medium.woff2) format('woff2');
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@font-face {
+    font-family: 'Morabba Bold';
+    src: url(/public/fonts/Morabba/woff2/Morabba-Bold.woff2) format('woff2');
 }
