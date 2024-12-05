@@ -31,3 +31,12 @@
     font-family: 'Morabba Bold';
     src: url(/public/fonts/Morabba/woff2/Morabba-Bold.woff2) format('woff2');
 }
+
+body {
+    @apply bg-gray-100 font-Dana dark:bg-zinc-800 
+}
+
+body {
+    background-image: url(./assets/headerBgDesktop.webp);
+    background-repeat: no-repeat;
+}

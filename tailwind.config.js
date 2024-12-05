@@ -1,9 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
-            colors: {
+      letterSpacing: {
+        "tightest": "-0.065em"
+      },
+
+      colors: {
         "brown": {
           100: "#ECE0D1",
           300: "#DBC1AC",
@@ -13,11 +18,15 @@ module.exports = {
       },
 
       boxShadow: {
-        "shadow-normal": "0px 1px 10px rgba(0, 0, 0, 0.05)"
+        "normal": "0px 1px 10px rgba(0, 0, 0, 0.05)"
       },
 
       borderRadius: {
         "4xl": "2rem"
+      },
+
+      spacing: {
+        "30": "7.5rem"
       },
 
       fontFamily: {
