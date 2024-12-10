@@ -46,10 +46,15 @@ module.exports = {
       }
     },
     screens: {
+      'xs': '480px',
       'sm': '640px',
       'md': '768px',
       'lg': '1024px',
       'xl': '1280px',
+    },
+    backgroundImage: {
+      'home-mobile': 'url(./assets/headerBgMobile.webp)',
+      'home-desktop': 'url(./assets/headerBgDesktop.webp)'
     }
   },
   plugins: [],

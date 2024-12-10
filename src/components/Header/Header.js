@@ -152,7 +152,7 @@ export default class Header extends Component {
                     </div>
                 </div>
             </header>
-            <div className='flex px-4 md:hidden w-full h-16 bg-white dark:bg-zinc-700 items-center justify-between'>
+            <div className='flex px-4 md:hidden w-full h-16 dark:text-white bg-white dark:bg-zinc-700 items-center justify-between'>
                 {/* Nav Icon */}
                 <a href="#" onClick={() => this.openNav()}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
