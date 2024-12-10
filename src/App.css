@@ -36,3 +36,20 @@ body {
     @apply bg-gray-100 font-Dana dark:bg-zinc-800 
 }
 
+@layer components {
+    html.dark .products {
+        background-image: url('./assets/products-bg.png');
+    }
+
+    @media screen and (min-width: 1288px) {
+        .products {
+            background: none;
+        }
+        .products {
+            background: linear-gradient(rgba(243, 244, 246, 0.80), rgba(243, 244, 246, 0.80)), url('./assets/products-bg.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            height: 900px;
+        }
+    }
+}
