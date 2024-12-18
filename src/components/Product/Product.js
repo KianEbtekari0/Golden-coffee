@@ -4,7 +4,7 @@ import productImg from '../../assets/products/p1.png'
 export default class Products extends Component {
   render() {
     return (
-      <div className="flex items-center justify-center flex-col dark:bg-zinc-700 w-[200px] md:w-[250px] xl:w-[300px] bg-white p-2 md:p-5 shadow-normal rounded-2xl">
+      <div className="dark:bg-zinc-700 bg-white p-2 md:p-5 shadow-normal rounded-2xl">
         <div className="flex items-center justify-center">
           <img src={productImg} alt="" className='w-11/12 pb-6' />
         </div>
