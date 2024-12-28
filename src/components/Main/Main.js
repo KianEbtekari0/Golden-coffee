@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Products from '../Products/Products'
 import ProductsCategory from '../ProductsCategory/ProductsCategory'
+import BestSelling from '../BestSelling/BestSelling'
 
 export default class Main extends Component {
   render() {
@@ -18,6 +19,7 @@ export default class Main extends Component {
         </section>
         <Products />
         <ProductsCategory />
+        <BestSelling />
       </main>
     )
   }
