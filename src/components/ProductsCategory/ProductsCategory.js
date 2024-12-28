@@ -8,7 +8,7 @@ import Category5 from '../../assets/categories/category1.png'
 export default class ProductsCategory extends Component {
   render() {
     return (
-      <section className='xl:my-20 lg:my-20'>
+      <section className='my-14 xl:my-20 lg:my-20'>
           <div className='container'>
               <div className='flex items-center justify-center gap-y-6 gap-x-[29px] md:gap-[65px] flex-wrap'>
                 <div className='flex items-center justify-center flex-col md:gap-2.5 gap-1.5 w-25 md:w-50'>

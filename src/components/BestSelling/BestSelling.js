@@ -10,7 +10,7 @@ export default function BestSelling() {
     return (
         <section className='best-selling'>
             <div className="container">
-                <div className="flex px-10 justify-between mb-5 md:mb-12">
+                <div className="flex px-4 md:px-10 justify-between mb-5 md:mb-12">
                     <div>
                         <h1 className='font-MorabbaMedium text-xl sm:text-4xl'>محصولات پر فروش</h1>
                         <p className='font-MorabbaLight text-base sm:text-2xl'>پیشنهاد قهوه خور ها ...</p>

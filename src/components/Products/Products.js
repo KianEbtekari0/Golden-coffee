@@ -3,7 +3,7 @@ import Product from '../Product/Product'
 export default class Products extends Component {
   render() {
     return (
-      <section className='products pt-8 md:pt-24 md:my-20'>
+      <section className='products w-fit mx-auto md:mb-20 xl:mb-72 pt-8 md:pt-24'>
         <div className='container'>
           <div className="flex px-10 justify-between mb-5 md:mb-12">
               <div>
@@ -17,7 +17,7 @@ export default class Products extends Component {
                   </svg>
               </div>
           </div>
-          <div className="grid p-10 lg:p-0 grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4 xl:gap-x-8">
             <Product />
             <Product />
             <Product />
