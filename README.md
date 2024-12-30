@@ -6,7 +6,7 @@
 </h3>
 
 <h4 align="center">
-  a coffee shop application where customers can browse the menu, place orders.
+  a coffee shop application where customers can browse the menu and place orders.
 </h4>
 
 <p align="center">
@@ -24,7 +24,7 @@
   </a>
 </p>
 
-![screenshot]()
+![Screenshot 2024-12-30 202826](https://github.com/user-attachments/assets/af23e073-7451-4848-8935-13ccbded831c)
 
 ## 🛠️ **Tech Stack**
 
