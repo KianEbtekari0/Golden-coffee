@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Products from '../Products/Products'
 import ProductsCategory from '../ProductsCategory/ProductsCategory'
 import BestSelling from '../BestSelling/BestSelling'
+import CoffeeClub from '../CoffeeClub/CoffeeClub'
 
 export default class Main extends Component {
   render() {
@@ -20,6 +21,7 @@ export default class Main extends Component {
         <Products />
         <ProductsCategory />
         <BestSelling />
+        <CoffeeClub />
       </main>
     )
   }

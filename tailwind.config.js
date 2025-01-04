@@ -48,6 +48,7 @@ module.exports = {
       }
     },
     screens: {
+      '2xs': '420px',
       'xs': '480px',
       'sm': '640px',
       'md': '768px',
@@ -56,7 +57,9 @@ module.exports = {
     },
     backgroundImage: {
       'home-mobile': 'url(./assets/headerBgMobile.webp)',
-      'home-desktop': 'url(./assets/headerBgDesktop.webp)'
+      'home-desktop': 'url(./assets/headerBgDesktop.webp)',
+      'gradient-radial': 'linear-gradient(90deg, rgba(34,197,94,1) 0%, rgba(22,163,74,1) 100%)',
+      'gradient-btn': 'linear-gradient(90deg, rgba(254,215,170,1) 0%, rgba(253,186,116,1) 100%)'
     }
   },
   plugins: [],
