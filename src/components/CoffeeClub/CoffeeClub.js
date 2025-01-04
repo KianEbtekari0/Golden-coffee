@@ -48,7 +48,6 @@ export default class CoffeeClub extends Component {
                     </div>
                 </div>
             </div>
-
       </section>
     )
   }

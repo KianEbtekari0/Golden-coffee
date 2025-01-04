@@ -46,7 +46,7 @@ export default function BestSelling() {
                         spaceBetween: 20,
                     },
                     }}
-                    className='mySwiper'
+                    className='mySwiper -z-10'
                 >
                     <SwiperSlide>
                         <div className="dark:bg-zinc-700 bg-white p-2 md:p-5 shadow-normal rounded-2xl">
