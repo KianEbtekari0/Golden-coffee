@@ -60,7 +60,7 @@ export default class Header extends Component {
   render() {
     return (
         <>
-            <header className='fixed hidden md:flex lg:px-10 lg:w-[90%] top-9 right-0 left-0 backdrop-blur-[6px] items-center w-[95%] rounded-3xl h-24 mx-auto px-7 py-5 bg-black/50'>
+            <header className='fixed z-10 hidden md:flex lg:px-10 lg:w-[90%] top-9 right-0 left-0 backdrop-blur-[6px] items-center w-[95%] rounded-3xl h-24 mx-auto px-7 py-5 bg-black/50'>
                 <div className="flex items-center justify-between w-full">
                     {/* Logo & Menu */}
                     <nav className='flex items-center h-14 lg:gap-x-9 gap-x-6'>
