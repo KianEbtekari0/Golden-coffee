@@ -4,7 +4,7 @@ import ProductsCategory from '../ProductsCategory/ProductsCategory'
 import BestSelling from '../BestSelling/BestSelling'
 import CoffeeClub from '../CoffeeClub/CoffeeClub'
 import ContactUs from '../ContactUs/ContactUs'
-import ShippingConditions from '../ShippingConditions/ShippingConditions'
+import Support from '../Support/Support'
 
 export default class Main extends Component {
   render() {
@@ -25,7 +25,7 @@ export default class Main extends Component {
         <BestSelling />
         <CoffeeClub />
         <ContactUs />
-        <ShippingConditions />
+        <Support />
       </main>
     )
   }

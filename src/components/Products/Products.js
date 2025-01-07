@@ -7,8 +7,8 @@ export default class Products extends Component {
         <div className='container'>
           <div className="flex px-4 md:px-10 justify-between mb-5 md:mb-12">
               <div>
-                  <h1 className='font-MorabbaMedium text-xl sm:text-4xl'>جدید ترین محصولات</h1>
-                  <p className='font-MorabbaLight text-base sm:text-2xl'>فرآوری شده از دانه قهوه</p>
+                  <h1 className='dark:text-white font-MorabbaMedium text-xl sm:text-4xl'>جدید ترین محصولات</h1>
+                  <p className='dark:text-white font-MorabbaLight text-base sm:text-2xl'>فرآوری شده از دانه قهوه</p>
               </div>
               <div className="flex items-center gap-2 mt-auto text-orange-300">
                   <p className='font-DanaMedium text-xs sm:text-base'>مشاهده همه محصولات</p>
@@ -17,7 +17,7 @@ export default class Products extends Component {
                   </svg>
               </div>
           </div>
-          <div className="grid px-3 grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4 xl:gap-x-8">
+          <div className="dark:text-white grid px-3 grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4 xl:gap-x-8">
             <Product />
             <Product />
             <Product />

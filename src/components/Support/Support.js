@@ -14,9 +14,9 @@ export default class ShippingConditions extends Component {
                     <div>
                         <img src={supportImg} className='w-12 xs:w-14' alt="Support Image" />
                     </div>
-                    <div className=''>
-                        <h1 className='text-base md:text-lg'>پشتیبانی شبانه روزی</h1> 
-                        <p className='text-xs mt-2.5'>7 روز هفته . 24 ساعته</p>
+                    <div>
+                        <h1 className='dark:text-white text-base md:text-lg'>پشتیبانی شبانه روزی</h1> 
+                        <p className='text-xs mt-2.5 dark:text-white'>7 روز هفته . 24 ساعته</p>
                     </div>
                 </div>
                 <div className='flex items-center gap-3'>
@@ -24,8 +24,8 @@ export default class ShippingConditions extends Component {
                         <img src={expressDelvery} className='w-[70px] xs:w-[85px]' alt="Support Image" />
                     </div>
                     <div className=''>
-                        <h1 className='text-base md:text-lg'>امکان تحویل اکسپرس</h1> 
-                        <p className='text-xs mt-2.5'>ارسال بسته با سرعت</p>
+                        <h1 className='dark:text-white text-base md:text-lg'>امکان تحویل اکسپرس</h1> 
+                        <p className='text-xs mt-2.5 dark:text-white'>ارسال بسته با سرعت</p>
                     </div>
                 </div>
                 <div className='flex items-center gap-4'>
@@ -33,17 +33,17 @@ export default class ShippingConditions extends Component {
                         <img src={coffeeImg} className='w-9 xs:w-11' alt="Support Image" />
                     </div>
                     <div className=''>
-                        <h1 className='text-base md:text-lg'>رست تخصصی</h1> 
-                        <p className='text-xs mt-2.5'>تازه و با کیفیت</p>
+                        <h1 className='dark:text-white text-base md:text-lg'>رست تخصصی</h1> 
+                        <p className='text-xs mt-2.5 dark:text-white'>تازه و با کیفیت</p>
                     </div>
                 </div>
                 <div className='flex items-center gap-4'>
                     <div>
                         <img src={pitcherImg} className='w-12 xs:w-14' alt="Support Image" />
                     </div>
-                    <div className=''>
-                        <h1 className='text-base md:text-lg'>اکسسوری قهوه</h1> 
-                        <p className='text-xs mt-2.5'>وسایل و ابزار دم آوری</p>
+                    <div>
+                        <h1 className='dark:text-white text-base md:text-lg'>اکسسوری قهوه</h1> 
+                        <p className='text-xs mt-2.5 dark:text-white'>وسایل و ابزار دم آوری</p>
                     </div>
                 </div>
             </div>
