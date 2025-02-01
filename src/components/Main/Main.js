@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Products from '../Products/Products'
 import ProductsCategory from '../ProductsCategory/ProductsCategory'
 import BestSelling from '../BestSelling/BestSelling'
@@ -6,9 +6,8 @@ import CoffeeClub from '../CoffeeClub/CoffeeClub'
 import ContactUs from '../ContactUs/ContactUs'
 import Support from '../Support/Support'
 
-export default class Main extends Component {
-  render() {
-    return (
+export default function Main() {
+  return (
       <main>
         <section className='home h-[200px] xs:aspect-[2/1] md:aspect-auto xs:h-auto bg-no-repeat bg-cover bg-[center_top] md:bg-home-desktop bg-home-mobile'>
             <div className="container h-full md:min-h-screen flex justify-end items-center">
@@ -27,6 +26,5 @@ export default class Main extends Component {
         <ContactUs />
         <Support />
       </main>
-    )
-  }
+  )
 }

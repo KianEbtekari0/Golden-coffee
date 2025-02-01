@@ -1,12 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import telegramImg from '../../assets/svgs/telegram.svg'
 import logoTypeImg from '../../assets/svgs/logo-type.svg'
 import logoImg from '../../assets/svgs/logo.svg'
 
-export default class Footer extends Component {
-  render() {
-    return (
-      <footer className='px-5 md:px-10 xl:px-16 pt-9 pb-5 bg-zinc-700'>
+export default function Footer() {
+  return (
+    <footer className='px-5 md:px-10 xl:px-16 pt-9 pb-5 bg-zinc-700'>
         <div>
             <div className='flex flex-wrap gap-y-4 justify-between'>
                 <div className='text-gray-300 px-3'>
@@ -113,7 +112,6 @@ export default class Footer extends Component {
                 <h1 className='text-xs md:text-base'>تمام حقوق محفوظ است</h1>
             </div>
         </div>
-      </footer>
-    )
-  }
+    </footer>
+  )
 }

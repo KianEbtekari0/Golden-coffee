@@ -1,63 +1,38 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Logo from '../../assets/app-logo.png'
 import BasketProducts from '../BasketProducts/BasketProducts'
 
-export default class Header extends Component {
+export default function Header() {
+    const [active, setActive] = useState(false);
+    const [iconRotate, setIconRotate] = useState(false);
+    const [isNavOpen, setIsNavOpen] = useState(true);
+    const [isBasketOpen, setIsBasketOpen] = useState(true);
 
-    constructor(props) {
-        super(props)
-
-        this.state = { 
-            active: false,
-            iconRotate: false,
-            isNavOpen: true,
-            isBasketOpen: true
-        }
+    const darkModeBtn = () => {
+        
     }
 
-    darkModeBtn() {
-      localStorage.setItem("dark", "light")
-        if (localStorage.theme === 'dark') {
-            document.documentElement.classList.remove('dark')
-            localStorage.theme = 'light'
-        } else {
-            document.documentElement.classList.add("dark")
-            localStorage.theme = 'dark'
-        }
-    }
+    const subMenuHandler = () => {
+        setActive(!active);
+        setIconRotate(!iconRotate);
+    };
 
-    subMenuHandler() {
-        this.setState({
-            active: !this.state.active,
-            iconRotate: !this.state.iconRotate
-        })
-    }
+    const openNav = () => {
+        setIsNavOpen(true);
+    };
 
-    openNav() {
-        this.setState({
-            isNavOpen: false
-        })
-    }
+    const closeNav = () => {
+        setIsNavOpen(false);
+    };
 
-    closeNav() {
-        this.setState({
-            isNavOpen: true
-        })
-    }
+    const openBasketNav = () => {
+        setIsBasketOpen(true);
+    };
 
-    openBasketNav() {
-        this.setState({
-            isBasketOpen: false
-        })
-    }
+    const closeBasketNav = () => {
+        setIsBasketOpen(false);
+    };
 
-    closeBasketNav() {
-        this.setState({
-            isBasketOpen: true
-        })
-    }
-
-  render() {
     return (
         <>
             <header className='fixed z-10 hidden md:flex lg:px-10 lg:w-[90%] top-9 right-0 left-0 backdrop-blur-[6px] items-center w-[95%] rounded-3xl h-24 mx-auto px-7 py-5 bg-black/50'>
@@ -76,12 +51,12 @@ export default class Header extends Component {
                                 <a href="#" className='group-hover:text-orange-300 transition-all'>فروشگاه</a>
                                 {/* Submenu */}
                                 <div className='absolute transition-all opacity-0 invisible group-hover:opacity-100 group-hover:visible child:block shadow-normal tracking-normal p-6 space-y-4 w-52 bg-white border-t-[3px] border-t-orange-300 text-zinc-700 text-base dark:text-white rounded-2xl dark:bg-zinc-700'>
-                                    <a href="#" className='block transition-colors hover:text-orange-300'>قهوه ویژه</a>
-                                    <a href="#" className='block transition-colors hover:text-orange-300'></a>
-                                    <a href="#" className='block transition-colors hover:text-orange-300'>قهوه درجه یک</a>
-                                    <a href="#" className='block transition-colors hover:text-orange-300'>تکیبات تجاری</a>
-                                    <a href="#" className='block transition-colors hover:text-orange-300'>کپسول قهوه</a>
-                                    <a href="#" className='block transition-colors hover:text-orange-300'>قهوه برزیلی</a>
+                                    <a href="#" className='block hover:text-orange-300'>قهوه ویژه</a>
+                                    <a href="#" className='block hover:text-orange-300'></a>
+                                    <a href="#" className='block hover:text-orange-300'>قهوه درجه یک</a>
+                                    <a href="#" className='block hover:text-orange-300'>تکیبات تجاری</a>
+                                    <a href="#" className='block hover:text-orange-300'>کپسول قهوه</a>
+                                    <a href="#" className='block hover:text-orange-300'>قهوه برزیلی</a>
                                 </div>
                             </li>
                             <li className='leading-[56px]'><a href="#">دیکشنری</a></li>
@@ -123,7 +98,7 @@ export default class Header extends Component {
                                                 <p className='text-xs font-DanaMedium mb-[3px] text-gray-300 tracking-tighter'>مبلغ قابل پرداخت</p>
                                                 <h1 className='font-DanaDemiBold text-zinc-700 dark:text-white'>۳۵۰,۰۰۰ <span className='text-sm font-Dana'>تومان</span></h1>
                                             </div>
-                                            <a href="#" className='transition-all hover:bg-teal-700 transition-colors dark:hover:bg-emerald-600 bg-teal-600 dark:bg-emerald-500 text-white rounded-2xl w-[144px] h-14 tracking-tightest flex items-center justify-center'>
+                                            <a href="#" className='transition-all hover:bg-teal-700 dark:hover:bg-emerald-600 bg-teal-600 dark:bg-emerald-500 text-white rounded-2xl w-[144px] h-14 tracking-tightest flex items-center justify-center'>
                                                 ثبت سفارش
                                             </a>
                                         </div>
@@ -132,10 +107,10 @@ export default class Header extends Component {
                             </div>
                             {/* Theme Switch Btn */}
                             <div className='cursor-pointer'>
-                                <svg onClick={() => this.darkModeBtn()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 inline-block dark:hidden">
+                                <svg onClick={() => darkModeBtn()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 inline-block dark:hidden">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
                                 </svg>
-                                <svg onClick={() => this.darkModeBtn()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 hidden dark:inline-block">
+                                <svg onClick={() => darkModeBtn()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 hidden dark:inline-block">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
                                 </svg>
                             </div>
@@ -154,7 +129,7 @@ export default class Header extends Component {
             </header>
             <div className='flex px-4 md:hidden w-full h-16 dark:text-white bg-white dark:bg-zinc-700 items-center justify-between'>
                 {/* Nav Icon */}
-                <a href="#" onClick={() => this.openNav()}>
+                <a href="#" onClick={() => openNav()}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
@@ -177,7 +152,7 @@ export default class Header extends Component {
                 </div>
 
                 {/* Nav */}
-                <div className={this.state.isNavOpen ? 'hidden transition-all' : "absolute dark:bg-zinc-700 px-4 transition-all dark:text-white justify-between flex flex-col py-4 right-0 top-0 w-64 bg-white min-h-screen"}>
+                <div className={isNavOpen ? 'hidden transition-all' : "absolute dark:bg-zinc-700 px-4 transition-all dark:text-white justify-between flex flex-col py-4 right-0 top-0 w-64 bg-white min-h-screen"}>
                     {/* Nav Header */}
                     <div>
                         <div className="flex items-center justify-between">
@@ -196,7 +171,7 @@ export default class Header extends Component {
                                     <path d="M119.307 41.8896C119.365 47.3094 119.598 52.2631 119.715 52.9625C120.006 54.3029 120.181 54.3029 128.223 54.3029H136.382L137.256 52.2631C138.364 49.524 138.364 49.524 135.974 50.5148C133.41 51.5638 128.515 51.6803 127.757 50.6313C127.466 50.2816 127.291 48.9995 127.349 47.8922C127.407 46.7849 127.524 45.5028 127.524 45.0949C127.582 44.6286 128.573 44.3955 130.438 44.3955C133.41 44.3955 134.984 43.3465 134.401 41.8313C134.168 41.2485 133.002 40.8988 130.671 40.7823L127.291 40.6074L127.116 38.5094C126.883 35.4789 127.932 34.7796 131.72 35.5955C134.401 36.1783 134.809 36.12 135.508 35.2458C135.974 34.663 136.266 33.7889 136.149 33.3226C136.033 32.6233 134.517 32.4485 127.582 32.2736L119.132 32.0988L119.307 41.8896Z" fill="#fdba74"/>
                                 </svg> 
                             </div>
-                            <a href='#' onClick={() => this.closeNav()}>
+                            <a href='#' onClick={() => closeNav()}>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 cursor-pointer">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                                 </svg>
@@ -207,28 +182,28 @@ export default class Header extends Component {
                             <ul className='flex flex-col pr-2.5 gap-x-7 dark:text-white border-t border-t-gray-100 dark:border-t-white/10 pt-6 text-zinc-600 text-lg tracking-tightest'>
                                 <li className='flex cursor-pointer items-center gap-x-2 text-orange-300 bg-orange-200/20 mb-4 pr-2.5 -mr-2.5 h-10 rounded-md'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg><a href="#">صفحه اصلی</a></li>
                                 {/* Has li */}
-                                <li className='flex dark:text-white cursor-pointer items-center gap-x-2 group relative leading-[55px]' onClick={() => this.subMenuHandler()}>
+                                <li className='flex dark:text-white cursor-pointer items-center gap-x-2 group relative leading-[55px]' onClick={() => subMenuHandler()}>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 transition-all group-hover:text-orange-300"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" /></svg>
                                     <a href="#" className='flex items-center justify-between group-hover:text-orange-300 transition-all'>
                                         فروشگاه
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={this.state.iconRotate ? 'rotate-180 size-5 absolute left-0 transition-all transition-colors' : "size-5 absolute left-0 transition-all transition-colors group group-hover:text-orange-300"}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class={iconRotate ? 'rotate-180 size-5 absolute left-0 transition-all' : "size-5 absolute left-0 transition-all group group-hover:text-orange-300"}>
                                             <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
                                         </svg>
                                     </a>
                                 </li>
                                 {/* Submenu */}
-                                <div className={this.state.active ? 'px-[28px] transition-all group-hover:opacity-100 group-hover:visible tracking-normal space-y-4 border-t-orange-300 text-zinc-600 dark:text-white text-sm' : 'hidden transition-all'}>
-                                    <a href="#" className='block transition-colors hover:text-orange-300'>قهوه ویژه</a>
-                                    <a href="#" className='block transition-colors hover:text-orange-300'></a>
-                                    <a href="#" className='block transition-colors hover:text-orange-300'>قهوه درجه یک</a>
-                                    <a href="#" className='block transition-colors hover:text-orange-300'>تکیبات تجاری</a>
-                                    <a href="#" className='block transition-colors hover:text-orange-300'>کپسول قهوه</a>
-                                    <a href="#" className='block transition-colors hover:text-orange-300'>قهوه برزیلی</a>
+                                <div className={active ? 'px-[28px] transition-all group-hover:opacity-100 group-hover:visible tracking-normal space-y-4 border-t-orange-300 text-zinc-600 dark:text-white text-sm' : 'hidden transition-all'}>
+                                    <a href="#" className='block hover:text-orange-300'>قهوه ویژه</a>
+                                    <a href="#" className='block hover:text-orange-300'></a>
+                                    <a href="#" className='block hover:text-orange-300'>قهوه درجه یک</a>
+                                    <a href="#" className='block hover:text-orange-300'>تکیبات تجاری</a>
+                                    <a href="#" className='block hover:text-orange-300'>کپسول قهوه</a>
+                                    <a href="#" className='block hover:text-orange-300'>قهوه برزیلی</a>
                                 </div>
-                                <li className='flex cursor-pointer group transition-all transition-colors hover:text-orange-300 items-center gap-x-2 leading-[55px]'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" /></svg><a href="#">دیکشنری</a></li>
-                                <li className='flex cursor-pointer group transition-all transition-colors hover:text-orange-300 items-center gap-x-2 leading-[55px]'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" /></svg><a href="#">درباره ما</a></li>
-                                <li className='flex cursor-pointer group transition-all transition-colors hover:text-orange-300 items-center gap-x-2 leading-[55px]'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg><a href="#">بلاگ</a></li>
-                                <li className='flex cursor-pointer group transition-all transition-colors hover:text-orange-300 items-center gap-x-2 leading-[55px]'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0-6 6m3 12c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z" /></svg><a href="#">تماس با ما</a></li>
+                                <li className='flex cursor-pointer group transition-all hover:text-orange-300 items-center gap-x-2 leading-[55px]'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" /></svg><a href="#">دیکشنری</a></li>
+                                <li className='flex cursor-pointer group transition-all hover:text-orange-300 items-center gap-x-2 leading-[55px]'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" /></svg><a href="#">درباره ما</a></li>
+                                <li className='flex cursor-pointer group transition-all hover:text-orange-300 items-center gap-x-2 leading-[55px]'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg><a href="#">بلاگ</a></li>
+                                <li className='flex cursor-pointer group transition-all hover:text-orange-300 items-center gap-x-2 leading-[55px]'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0-6 6m3 12c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z" /></svg><a href="#">تماس با ما</a></li>
                             </ul>
                         </div>
                     </div>
@@ -248,10 +223,10 @@ export default class Header extends Component {
                             سبد خرید
                         </a>
                         <div className='flex items-center gap-x-2 cursor-pointer text-orange-300'>
-                            <svg onClick={() => this.darkModeBtn()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 inline-block dark:hidden">
+                            <svg onClick={() => darkModeBtn()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 inline-block dark:hidden">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
                             </svg>
-                            <svg onClick={() => this.darkModeBtn()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 hidden dark:inline-block">
+                            <svg onClick={() => darkModeBtn()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 hidden dark:inline-block">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
                             </svg>
                             <span>تم تیره</span>
@@ -260,18 +235,18 @@ export default class Header extends Component {
                 </div>
 
                 {/* Basket Icon */}
-                <a href="#" onClick={() => this.openBasketNav()}>
+                <a href="#" onClick={() => openBasketNav()}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-zinc-700 dark:text-white">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                     </svg>
                 </a>
                 {/* cart */}
-                <div className={this.state.isBasketOpen ? "hidden transition-all" : "flex justify-between transition-all absolute dark:bg-zinc-700 py-5 px-4 dark:text-white flex-col left-0 top-0 w-[17rem] bg-white min-h-screen"}>
+                <div className={isBasketOpen ? "hidden transition-all" : "flex justify-between transition-all absolute dark:bg-zinc-700 py-5 px-4 dark:text-white flex-col left-0 top-0 w-[17rem] bg-white min-h-screen"}>
                     {/* cart header */}
                     <div>
                         <div className='pb-5 border-b border-b-gray-300 dark:border-b-white/10'>
                             <div className='flex justify-between items-center'>
-                                <a href='#' className='font-DanaMedium text-zinc-700 dark:text-white' onClick={() => this.closeBasketNav()}>
+                                <a href='#' className='font-DanaMedium text-zinc-700 dark:text-white' onClick={() => closeBasketNav()}>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 cursor-pointer">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                                     </svg>
@@ -289,7 +264,7 @@ export default class Header extends Component {
                     <div className='flex flex-col rounded-2xl space-y-4 dark:bg-zinc-700 bg-white '>
                         {/* cart footer */}
                         <div className="flex items-center justify-between">
-                            <a href="#" className='transition-all hover:bg-teal-700 transition-colors dark:hover:bg-emerald-600 bg-teal-600 dark:bg-emerald-500 text-white rounded-2xl w-[130px] h-14 tracking-tightest flex items-center justify-center'>
+                            <a href="#" className='transition-all hover:bg-teal-700 dark:hover:bg-emerald-600 bg-teal-600 dark:bg-emerald-500 text-white rounded-2xl w-[130px] h-14 tracking-tightest flex items-center justify-center'>
                                 ثبت سفارش
                             </a>
                             {/* Total price */}
@@ -303,5 +278,4 @@ export default class Header extends Component {
             </div>
         </>
     )
-  }
 }
