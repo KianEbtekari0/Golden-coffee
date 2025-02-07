@@ -2,15 +2,22 @@ import React, { useState } from 'react'
 import Logo from '../../assets/app-logo.png'
 import BasketProducts from '../BasketProducts/BasketProducts'
 
-export default function Header() {
+export default function Header({data}) {
     const [active, setActive] = useState(false);
     const [iconRotate, setIconRotate] = useState(false);
     const [isNavOpen, setIsNavOpen] = useState(true);
     const [isBasketOpen, setIsBasketOpen] = useState(true);
 
     const darkModeBtn = () => {
-        
-    }
+        localStorage.setItem("dark", "light");
+        if (localStorage.theme === 'dark') {
+            document.documentElement.classList.remove('dark');
+            localStorage.theme = 'light';
+        } else {
+            document.documentElement.classList.add("dark");
+            localStorage.theme = 'dark';
+        }
+    };
 
     const subMenuHandler = () => {
         setActive(!active);
@@ -32,7 +39,7 @@ export default function Header() {
     const closeBasketNav = () => {
         setIsBasketOpen(false);
     };
-
+    
     return (
         <>
             <header className='fixed z-10 hidden md:flex lg:px-10 lg:w-[90%] top-9 right-0 left-0 backdrop-blur-[6px] items-center w-[95%] rounded-3xl h-24 mx-auto px-7 py-5 bg-black/50'>
@@ -77,7 +84,7 @@ export default function Header() {
                                     {/* Carts Box */}
                                     <div className='absolute top-full left-0 transition-all opacity-0 invisible group-hover:opacity-100 group-hover:visible shadow-normal tracking-normal w-[400px] justify-between flex flex-col rounded-2xl border-t-[3px] border-t-orange-300 space-y-4 p-5 dark:bg-zinc-700 bg-white '>
                                         <div className="flex items-center justify-between font-DanaMedium text-xs tracking-tighter">
-                                            <p className='text-gray-300'>۱ مورد</p>
+                                            <p className='text-gray-300'><span className='font-DanaNum'>{data.length} </span>مورد</p>
                                             <a href="#" className='flex items-center text-orange-300'>
                                                 مشاهده سبد خرید
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
@@ -87,9 +94,14 @@ export default function Header() {
                                         </div>
                                         {/* products */}
                                         <div className="border-b border-b-gray-300 pb-1 dark:border-b-white/10 divide-y divide-gray-100/10 dark:divide-white/10">
-                                            <BasketProducts />
-                                            <BasketProducts />
-                                            <BasketProducts />
+                                            {data.length === 0 ? (
+                                                <h1 className='flex justify-center text-center font-DanaMedium text-base my-14'>سبد شما هنوز خالی است!</h1>
+                                            ) : (
+                                                data.map(product => (
+                                                    <BasketProducts key={product.id} product={product} data={data} />
+                                                ))
+                                            )
+                                            }
                                         </div>
                                         {/* Buy Btns */}
                                         <div className="flex items-center justify-between">
@@ -240,7 +252,7 @@ export default function Header() {
                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                     </svg>
                 </a>
-                {/* cart */}
+                {/* User Basket */}
                 <div className={isBasketOpen ? "hidden transition-all" : "flex justify-between transition-all absolute dark:bg-zinc-700 py-5 px-4 dark:text-white flex-col left-0 top-0 w-[17rem] bg-white min-h-screen"}>
                     {/* cart header */}
                     <div>
@@ -256,10 +268,7 @@ export default function Header() {
                         </div>
                         {/* cart body */}
                         <div className="border-b border-b-gray-300 pb-1 dark:border-b-white/10 divide-y divide-gray-100/10 dark:divide-white/10">
-                            <BasketProducts />
-                            <BasketProducts />
-                            <BasketProducts />
-                        </div> 
+                        </div>
                     </div>
                     <div className='flex flex-col rounded-2xl space-y-4 dark:bg-zinc-700 bg-white '>
                         {/* cart footer */}

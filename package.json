@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "express": "^4.21.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
@@ -38,5 +39,10 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.15"
-  }
+  },
+  "description": "<br>\r <h2 align=\"center\">\r   <img src='https://github.com/user-attachments/assets/7d4572de-b3c4-4197-b54c-e4e360f51f97' />\r   <br>\r   <br>\r </h3>",
+  "main": "tailwind.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

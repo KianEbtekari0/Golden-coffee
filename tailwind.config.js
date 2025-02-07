@@ -35,6 +35,7 @@ module.exports = {
         'Dana': ['Dana', 'sans-serif'],
         'DanaMedium': 'Dana Medium',
         'DanaDemiBold': 'Dana DemiBold',
+        'DanaNum': 'Dana DemiNum',
         'MorabbaLight': 'Morabba Light',
         'MorabbaMedium': 'Morabba Medium',
         'MorabbaBold': 'Morabba Bold'

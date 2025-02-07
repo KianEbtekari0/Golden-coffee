@@ -18,6 +18,11 @@
 }
 
 @font-face {
+    font-family: 'Dana DemiNum';
+    src: url(/public/fonts/Dana/woff2/DanaFaNum-DemiBold.woff2) format('woff2');
+}
+
+@font-face {
     font-family: 'Morabba Light';
     src: url(/public/fonts/Morabba/woff2/Morabba-Light.woff2) format('woff2');
 }
