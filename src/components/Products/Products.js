@@ -13,28 +13,37 @@ import img8 from '../../assets/products/p8.png'
 export default function Products() {
 
   const [products, setProducts] = useState([
-    {"id": 1, "img": img1, "description": "قهوه ترک بن مانو به مقدار 100 گرم", "price": 155000},
-    {"id": 2, "img": img2, "description": "قهوه ترک بن مانو به مقدار 50 گرم", "price": 30000},
-    {"id": 3, "img": img3, "description": "قهوه ترک بن مانو به مقدار 80 گرم", "price": 105000},
-    {"id": 4, "img": img4, "description": "قهوه ترک بن مانو به مقدار 150 گرم", "price": 35000},
-    {"id": 5, "img": img5, "description": "قهوه ترک بن مانو به مقدار 250 گرم", "price": 125000},
-    {"id": 6, "img": img6, "description": "قهوه ترک بن مانو به مقدار  300 گرم", "price": 155000},
-    {"id": 7, "img": img7, "description": "قهوه اسپرسو بن مانو مدل پریسکا 500 گرمی", "price": 130000},
-    {"id": 8, "img": img8, "description": "قهوه ترک بن مانو به مقدار 350 گرم", "price": 250000}
+    {"id": 1, "img": img1, "description": "قهوه ترک بن مانو به مقدار 100 گرم", "price": 155000, "count": 1},
+    {"id": 2, "img": img2, "description": "قهوه ترک بن مانو به مقدار 50 گرم", "price": 30000, "count": 1},
+    {"id": 3, "img": img3, "description": "قهوه ترک بن مانو به مقدار 80 گرم", "price": 105000, "count": 1},
+    {"id": 4, "img": img4, "description": "قهوه ترک بن مانو به مقدار 150 گرم", "price": 35000, "count": 1},
+    {"id": 5, "img": img5, "description": "قهوه ترک بن مانو به مقدار 250 گرم", "price": 125000, "count": 1},
+    {"id": 6, "img": img6, "description": "قهوه ترک بن مانو به مقدار  300 گرم", "price": 155000, "count": 1},
+    {"id": 7, "img": img7, "description": "قهوه اسپرسو بن مانو مدل پریسکا 500 گرمی", "price": 130000, "count": 1},
+    {"id": 8, "img": img8, "description": "قهوه ترک بن مانو به مقدار 350 گرم", "price": 250000, "count": 1}
   ])
 
   const [userBasket, setUserBasket] = useState([])
 
-  const addProductToBasket = (prodcutId) => {
-    let mainProduct = products.find(product => {
-      return prodcutId === product.id
-    })
+  const addProductToBasket = (productId) => {
+    setUserBasket(prevBasket => {
+      const existingProduct = prevBasket.find(item => item.id === productId);
 
-    setUserBasket(prevState => {
-      return [...prevState, mainProduct]
+      if (existingProduct) {
+        return prevBasket.map((item) =>
+          item.id === productId ? { ...item, count: item.count + 1 } : item
+        );
+      } else {
+        const mainProduct = products.find((product) => product.id === productId);
+        if (mainProduct) {
+          return [...prevBasket, { ...mainProduct, count: 1 }];
+        }
+      }
+
+      return prevBasket;
     })
   }
-
+  
   return (
     <section className='products w-fit mx-auto md:mb-20 xl:mb-72 pt-8 md:pt-24'>
       <div className='container'>

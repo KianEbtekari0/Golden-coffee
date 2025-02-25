@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Logo from '../../assets/app-logo.png'
+import basketImg from '../../assets/icons8-shopping-bag-94.png'
 import BasketProducts from '../BasketProducts/BasketProducts'
 
 export default function Header({data}) {
@@ -39,7 +40,7 @@ export default function Header({data}) {
     const closeBasketNav = () => {
         setIsBasketOpen(false);
     };
-    
+
     return (
         <>
             <header className='fixed z-10 hidden md:flex lg:px-10 lg:w-[90%] top-9 right-0 left-0 backdrop-blur-[6px] items-center w-[95%] rounded-3xl h-24 mx-auto px-7 py-5 bg-black/50'>
@@ -84,7 +85,7 @@ export default function Header({data}) {
                                     {/* Carts Box */}
                                     <div className='absolute top-full left-0 transition-all opacity-0 invisible group-hover:opacity-100 group-hover:visible shadow-normal tracking-normal w-[400px] justify-between flex flex-col rounded-2xl border-t-[3px] border-t-orange-300 space-y-4 p-5 dark:bg-zinc-700 bg-white '>
                                         <div className="flex items-center justify-between font-DanaMedium text-xs tracking-tighter">
-                                            <p className='text-gray-300'><span className='font-DanaNum'>{data.length} </span>مورد</p>
+                                            <p className='text-gray-300'><span className='font-DanaNum'>{data.map(datas => datas.count + data.length)} </span>مورد</p>
                                             <a href="#" className='flex items-center text-orange-300'>
                                                 مشاهده سبد خرید
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
@@ -95,10 +96,13 @@ export default function Header({data}) {
                                         {/* products */}
                                         <div className="border-b border-b-gray-300 pb-1 dark:border-b-white/10 divide-y divide-gray-100/10 dark:divide-white/10">
                                             {data.length === 0 ? (
-                                                <h1 className='flex justify-center text-center font-DanaMedium text-base my-14'>سبد شما هنوز خالی است!</h1>
+                                                <div className='flex flex-col gap-5 items-center justify-center my-[40px]'>
+                                                    <img src={basketImg} alt="" />
+                                                    <h1 className='text-zinc-700 font-DanaMedium text-base'>سبد خرید شما خالی است!</h1>
+                                                </div>
                                             ) : (
                                                 data.map(product => (
-                                                    <BasketProducts key={product.id} product={product} data={data} />
+                                                    <BasketProducts key={product.id} {...product} />
                                                 ))
                                             )
                                             }
