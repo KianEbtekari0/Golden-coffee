@@ -19,7 +19,7 @@ export default function Header({data}) {
             localStorage.theme = 'dark';
         }
     };
-
+    
     const subMenuHandler = () => {
         setActive(!active);
         setIconRotate(!iconRotate);
@@ -85,7 +85,7 @@ export default function Header({data}) {
                                     {/* Carts Box */}
                                     <div className='absolute top-full left-0 transition-all opacity-0 invisible group-hover:opacity-100 group-hover:visible shadow-normal tracking-normal w-[400px] justify-between flex flex-col rounded-2xl border-t-[3px] border-t-orange-300 space-y-4 p-5 dark:bg-zinc-700 bg-white '>
                                         <div className="flex items-center justify-between font-DanaMedium text-xs tracking-tighter">
-                                            <p className='text-gray-300'><span className='font-DanaNum'>{data.map(datas => datas.count + data.length)} </span>مورد</p>
+                                            <p className='text-gray-300'><span className='font-DanaNum'></span>مورد</p>
                                             <a href="#" className='flex items-center text-orange-300'>
                                                 مشاهده سبد خرید
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">

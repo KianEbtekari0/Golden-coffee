@@ -43,6 +43,23 @@ export default function Products() {
       return prevBasket;
     })
   }
+
+  const removeProductFromBasket = (productId) => {
+    setUserBasket(prevBasket => {
+      const existingProduct = prevBasket.find(item => item.id === productId);
+
+      if (existingProduct) {
+        prevBasket.filter(item => item.id !== productId)
+      } else {
+        const mainProduct = products.find((product) => product.id === productId);
+        if (mainProduct) {
+          return [...prevBasket, { ...mainProduct, count: 1 }];
+        }
+      }
+
+      return prevBasket
+    })
+  }
   
   return (
     <section className='products w-fit mx-auto md:mb-20 xl:mb-72 pt-8 md:pt-24'>
