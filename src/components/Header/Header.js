@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Logo from '../../assets/app-logo.png'
 import basketImg from '../../assets/icons8-shopping-bag-94.png'
 import BasketProducts from '../BasketProducts/BasketProducts'
@@ -53,23 +54,21 @@ export default function Header({data}) {
                         </div>
                         {/* Menu */}
                         <ul className='flex lg:gap-x-9 gap-x-7 h-full text-gray-300 text-xl tracking-tightest'>
-                            <li className='font-DanaMedium leading-[56px] text-orange-200'><a href="#">صفحه اصلی</a></li>
+                            <li className='font-DanaMedium leading-[56px] text-orange-200'><Link to="/">صفحه اصلی</Link></li>
                             {/* Has li */}
                             <li className='relative group leading-[56px]'>
-                                <a href="#" className='group-hover:text-orange-300 transition-all'>فروشگاه</a>
+                                <Link to="#products" className='group-hover:text-orange-300 transition-all'>فروشگاه</Link>
                                 {/* Submenu */}
                                 <div className='absolute transition-all opacity-0 invisible group-hover:opacity-100 group-hover:visible child:block shadow-normal tracking-normal p-6 space-y-4 w-52 bg-white border-t-[3px] border-t-orange-300 text-zinc-700 text-base dark:text-white rounded-2xl dark:bg-zinc-700'>
-                                    <a href="#" className='block hover:text-orange-300'>قهوه ویژه</a>
-                                    <a href="#" className='block hover:text-orange-300'></a>
-                                    <a href="#" className='block hover:text-orange-300'>قهوه درجه یک</a>
-                                    <a href="#" className='block hover:text-orange-300'>تکیبات تجاری</a>
-                                    <a href="#" className='block hover:text-orange-300'>کپسول قهوه</a>
-                                    <a href="#" className='block hover:text-orange-300'>قهوه برزیلی</a>
+                                    <Link to="/" className='block hover:text-orange-300'>قهوه ویژه</Link>
+                                    <Link to="/" className='block hover:text-orange-300'>قهوه درجه یک</Link>
+                                    <Link to="/" className='block hover:text-orange-300'>تکیبات تجاری</Link>
+                                    <Link to="/" className='block hover:text-orange-300'>کپسول قهوه</Link>
+                                    <Link to="/" className='block hover:text-orange-300'>قهوه برزیلی</Link>
                                 </div>
                             </li>
-                            <li className='leading-[56px]'><a href="#">دیکشنری</a></li>
-                            <li className='leading-[56px]'><a href="#">درباره ما</a></li>
-                            <li className='leading-[56px]'><a href="#">تماس با ما</a></li>
+                            <li className='leading-[56px]'><Link to="bestselling">پرفروش ها</Link></li>
+                            <li className='leading-[56px]'><Link to="contactus">تماس با ما</Link></li>
                         </ul>
                     </nav>
                     

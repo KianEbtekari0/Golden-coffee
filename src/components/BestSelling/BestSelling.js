@@ -8,7 +8,7 @@ import React from 'react'
 export default function BestSelling() {
     const swiperRef = useRef();
     return (
-        <section className='best-selling'>
+        <section id='bestselling' className='best-selling'>
             <div className="container px-4">
                 <div className="flex px-4 md:px-10 justify-between mb-5 md:mb-12">
                     <div>

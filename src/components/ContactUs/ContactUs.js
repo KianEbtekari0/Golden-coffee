@@ -1,9 +1,11 @@
+import { Outlet } from 'react-router'
 import CoffeeImg from '../../assets/contact.png'
 import React from 'react'
 
 export default function ContactUs() {
   return (
-    <section className='mb-8 px-4 md:px-0 md:mb-20'>
+    <section id='contactus' className='mb-8 px-4 md:px-0 md:mb-20'>
+      {Outlet}
       <div className='container'>
           <div className='flex items-center justify-center gap-x-5 lg:gap-x-20'>
               <div className="hidden xs:block">

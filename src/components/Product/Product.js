@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 export default function Product(props) {
 
@@ -7,14 +8,16 @@ export default function Product(props) {
   }
 
   return (
-    <div className="dark:bg-zinc-700 bg-white p-2 md:p-5 shadow-normal rounded-2xl">
+    <div className='dark:bg-zinc-700 bg-white p-2 md:p-5 shadow-normal rounded-2xl'>
+      <Link to={`/product/${props.id}`} className="">
       <div className="flex items-center justify-center">
-        <img src={props.img} alt="Product Image" />
+        <img src={props.img} />
       </div>
       <div>
         <h1 className='font-DanaMedium text-sm md:text-base'>{props.description}</h1>
         <p className='text-teal-600 text-base md:text-lg py-2 font-DanaNum'>{props.price}<span className='text-xs md:text-sm font-DanaMedium'> تومان</span></p>
       </div>
+      </Link>
       <div className="flex justify-between items-center pt-2 md:pt-3">
         <div className="flex items-center gap-2 md:gap-4 text-gray-500">
           <svg onClick={() => clickHandler(props.id)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 bg-gray-200 rounded-full w-6 h-6 md:w-7 md:h-7 md:p-1 p-[3px] cursor-pointer">
