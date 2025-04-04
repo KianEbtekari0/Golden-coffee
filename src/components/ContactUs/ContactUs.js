@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function ContactUs() {
   return (
-    <section id='contactus' className='mb-8 px-4 md:px-0 md:mb-20'>
+    <section id='contactus' className='relative mb-8 px-4 md:px-0 md:mb-20'>
       {Outlet}
       <div className='container'>
           <div className='flex items-center justify-center gap-x-5 lg:gap-x-20'>

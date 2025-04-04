@@ -4,7 +4,7 @@ import Logo from '../../assets/app-logo.png'
 import basketImg from '../../assets/icons8-shopping-bag-94.png'
 import BasketProducts from '../BasketProducts/BasketProducts'
 
-export default function Header({data}) {
+export default function Header({data = [], PlusBtn, MinusBtn}) {
     const [active, setActive] = useState(false);
     const [iconRotate, setIconRotate] = useState(false);
     const [isNavOpen, setIsNavOpen] = useState(true);
@@ -41,6 +41,9 @@ export default function Header({data}) {
     const closeBasketNav = () => {
         setIsBasketOpen(false);
     };
+
+
+    
 
     return (
         <>
@@ -101,7 +104,7 @@ export default function Header({data}) {
                                                 </div>
                                             ) : (
                                                 data.map(product => (
-                                                    <BasketProducts key={product.id} {...product} />
+                                                    <BasketProducts key={product.id} {...product} basketData={data} PlusBtnBasket={PlusBtn} MinusBtnBasket={MinusBtn} />
                                                 ))
                                             )
                                             }
@@ -142,7 +145,7 @@ export default function Header({data}) {
                     </div>
                 </div>
             </header>
-            <div className='flex px-4 md:hidden w-full h-16 dark:text-white bg-white dark:bg-zinc-700 items-center justify-between'>
+            <div className='flex absolute top-0 left-0 right-0 px-4 md:hidden w-full h-16 dark:text-white bg-white dark:bg-zinc-700 items-center justify-between'>
                 {/* Nav Icon */}
                 <a href="#" onClick={() => openNav()}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -170,7 +173,7 @@ export default function Header({data}) {
                 <div className={isNavOpen ? 'hidden transition-all' : "absolute dark:bg-zinc-700 px-4 transition-all dark:text-white justify-between flex flex-col py-4 right-0 top-0 w-64 bg-white min-h-screen"}>
                     {/* Nav Header */}
                     <div>
-                        <div className="flex items-center justify-between">
+                        <div className="flex absolute items-center justify-between">
                             <div className="">
                                 <svg className='w-[100px] h-10 dark:text-white text-zinc-700' viewBox="0 0 138 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M9.97653 1.56084C6.13015 2.7264 3.68246 4.94098 1.70099 9.07875C-2.14539 17.1212 0.710258 25.1636 8.46129 28.0775C11.7249 29.2431 20.4084 29.7676 21.9236 28.7769C22.2733 28.5437 22.6229 26.3292 22.7395 23.5318C22.9726 17.704 22.7395 17.4708 17.3196 17.704C13.4732 17.8788 12.4242 18.753 14.7554 19.802C16.4454 20.5596 17.1448 22.6576 16.6203 24.9305C16.2706 26.2126 15.9792 26.3874 14.6388 26.0378C10.1514 24.9305 8.46129 22.0748 8.46129 15.5477C8.40301 11.7013 8.6944 10.4774 9.80169 8.49597C12.4242 3.83369 7.29571 4.18336 73.4417 4.18336C115.868 4.18336 132.653 4.3582 133.235 4.82443C134.11 5.58205 134.343 18.753 133.468 18.753C133.177 18.753 131.079 16.247 128.806 13.2165L124.668 7.68007H121.172C119.249 7.68007 117.675 7.79663 117.675 7.97146C117.675 8.1463 118.083 8.90392 118.607 9.66154C119.307 10.8271 119.423 12.5172 119.249 18.8695C119.132 23.1238 118.841 27.2033 118.607 27.961C118.141 29.2431 118.2 29.3014 120.356 29.1265L122.629 28.9517L122.804 22.949C122.862 19.6854 123.211 17.0046 123.503 17.0046C123.736 17.0046 125.717 19.6271 127.815 22.8325C131.72 28.8351 132.653 29.5345 136.091 29.1265L137.781 28.9517L137.956 16.7715C138.131 3.0178 137.956 2.37673 134.168 1.32772C132.711 0.919775 112.022 0.686661 72.2179 0.744938C24.0799 0.744938 12.0163 0.919775 9.97653 1.56084Z" fill="#fdba74"/>

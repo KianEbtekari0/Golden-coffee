@@ -1,11 +1,27 @@
 import React from 'react'
+import Header from '../Header/Header'
 import telegramImg from '../../assets/svgs/telegram.svg'
 import logoTypeImg from '../../assets/svgs/logo-type.svg'
 import logoImg from '../../assets/svgs/logo.svg'
 
-export default function Footer() {
+export default function NotFound() {
   return (
-    <footer className='absolute w-full px-5 md:px-10 xl:px-16 pt-9 pb-5 bg-zinc-700'>
+    <>
+      <div className='h-[100vh] flex flex-col items-center justify-between'>
+      <section class="my-[100px] md:my-[200px] lg:my-[250px] dark:bg-gray-900">
+          <div class="">
+              <div class="text-center px-2">
+                <h1 class="mb-4 text-2xl md:text-3xl lg:text-4xl tracking-tight font-DanaDemiBold text-gray-900  dark:text-white">صفحه ای که دنبال آن بودید پیدا نشد!</h1>
+                <a href="#" class="inline-flex items-center justify-center gap-1.5 text-orange-300 font-DanaMedium text-base md:text-lg px-5 py-2.5 text-center dark:focus:ring-primary-900 my-4">
+                صفحه اصلی
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                </svg>
+                </a>
+              </div>
+          </div>
+      </section>
+      <footer className='w-full px-5 md:px-10 xl:px-16 pt-9 pb-5 bg-zinc-700'>
         <div>
             <div className='flex flex-wrap gap-y-4 justify-between'>
                 <div className='text-gray-300 px-3'>
@@ -113,5 +129,7 @@ export default function Footer() {
             </div>
         </div>
     </footer>
+    </div>
+    </>
   )
 }

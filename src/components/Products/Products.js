@@ -28,22 +28,13 @@ export default function Products() {
     })
   }
 
-  // const removeProductFromBasket = (productId) => {
-  //   setUserBasket(prevBasket => {
-  //     const existingProduct = prevBasket.find(item => item.id === productId);
+  const plus = (productId) => {
+    
+  }
 
-  //     if (existingProduct) {
-  //       prevBasket.filter(item => item.id !== productId)
-  //     } else {
-  //       const mainProduct = products.find((product) => product.id === productId);
-  //       if (mainProduct) {
-  //         return [...prevBasket, { ...mainProduct, count: 1 }];
-  //       }
-  //     }
-
-  //     return prevBasket
-  //   })
-  // }
+  const minus = (productId) => {
+    console.log('clicked');
+  }
 
   return (
     <section id='prodcuts' className='products w-fit mx-auto md:mb-20 xl:mb-72 pt-8 md:pt-24'>
@@ -65,7 +56,7 @@ export default function Products() {
             <Product key={product.id} {...product} onAddProduct={addProductToBasket} />
           ))}
         </div>
-        <Header data={userBasket} />
+        <Header data={userBasket} PlusBtn={plus} MinusBtn={minus} />
       </div>
     </section>
   )

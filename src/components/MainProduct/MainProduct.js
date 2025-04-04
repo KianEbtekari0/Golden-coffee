@@ -13,7 +13,7 @@ export default function MainProduct() {
   
   return (
     <div>
-      {mainProductData.img}
+      <img src={mainProductData.img} alt="" />
       {mainProductData.id}
       {mainProductData.description}
       {mainProductData.price}

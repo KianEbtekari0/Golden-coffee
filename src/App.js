@@ -1,19 +1,16 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Main from './components/Main/Main';
-import Footer from "./components/Footer/Footer";
-import MainProduct from './components/MainProduct/MainProduct';
+import { useRoutes } from 'react-router-dom';
+import Routes from './Routes';
 import './App.css';
 
 function App() {
+
+  const router = useRoutes(Routes);
+
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/product/:id" element={<MainProduct />} />
-      </Routes>
-      <Footer />
-    </div>
+    <>
+      {router}
+    </>
   );
 }
 

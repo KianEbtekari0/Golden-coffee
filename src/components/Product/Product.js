@@ -8,7 +8,7 @@ export default function Product(props) {
   }
 
   return (
-    <div className='dark:bg-zinc-700 bg-white p-2 md:p-5 shadow-normal rounded-2xl'>
+    <div className='flex flex-col justify-between dark:bg-zinc-700 bg-white p-2 md:p-5 shadow-normal rounded-2xl'>
       <Link to={`/product/${props.id}`} className="">
       <div className="flex items-center justify-center">
         <img src={props.img} />
