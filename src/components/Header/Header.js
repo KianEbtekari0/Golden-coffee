@@ -100,7 +100,7 @@ export default function Header({data = [], PlusBtn, MinusBtn}) {
                                             {data.length === 0 ? (
                                                 <div className='flex flex-col gap-5 items-center justify-center my-[40px]'>
                                                     <img src={basketImg} alt="" />
-                                                    <h1 className='text-zinc-700 font-DanaMedium text-base'>سبد خرید شما خالی است!</h1>
+                                                    <h1 className='text-zinc-700 font-DanaMedium text-base dark:text-white'>سبد خرید شما خالی است!</h1>
                                                 </div>
                                             ) : (
                                                 data.map(product => (

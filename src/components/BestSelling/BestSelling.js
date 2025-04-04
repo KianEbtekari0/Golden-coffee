@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
 import { useRef } from 'react';
 import productImg from '../../assets/products/p1.png'
+import Product from '../Product/Product';
 import React from 'react'
 
 export default function BestSelling() {
