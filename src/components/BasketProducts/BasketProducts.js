@@ -41,7 +41,6 @@ export default function BasketProducts(props) {
                   </svg>
               </button>
             </div>
-            {/* <p className='font-DanaNum text-[15px]'>تعداد محصول: {props.count}sac</p> */}
             <div>
                 <p className='text-teal-600 text-xs dark:text-emerald-500'>۱۴,۵۰۰ تومان تخفیف</p>
                 <h1 className='text-zinc-700 font-DanaNum dark:text-white'>{props.price} <span className='tracking-tighter text-smfont-Dana'>تومان</span></h1>

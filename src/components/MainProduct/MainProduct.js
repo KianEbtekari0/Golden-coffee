@@ -7,14 +7,11 @@ import logoTypeImg from '../../assets/svgs/logo-type.svg'
 import logoImg from '../../assets/svgs/logo.svg'
 import Datas from '../../Datas'
 
-export default function MainProduct() {
+export default function MainProduct(data = []) {
   
   const { id } = useParams()
 
   let mainProductData = Datas.find(data => data.id == id)
-
-  console.log(mainProductData);
-  
   
   return (
     <>
@@ -72,7 +69,7 @@ export default function MainProduct() {
                 <p>کوچک</p>
               </div>
             </div>
-            <Link to='' className='mt-4 transition-all hover:bg-teal-700 dark:hover:bg-emerald-600 bg-teal-600 dark:bg-emerald-500 font-DanaDemiBold w-[200px] text-white rounded-2xl h-12 tracking-tightest flex items-center justify-center'>افزودن به سبد خرید</Link>
+            <Link className='mt-4 transition-all hover:bg-teal-700 dark:hover:bg-emerald-600 bg-teal-600 dark:bg-emerald-500 font-DanaDemiBold w-[200px] text-white rounded-2xl h-12 tracking-tightest flex items-center justify-center'>افزودن به سبد خرید</Link>
           </div>
           <div>
             <h1 className='font-DanaDemiBold text-base md:text-lg'>توضیحات</h1>

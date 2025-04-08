@@ -42,9 +42,6 @@ export default function Header({data = [], PlusBtn, MinusBtn}) {
         setIsBasketOpen(false);
     };
 
-
-    
-
     return (
         <>
             <header className='fixed z-10 hidden md:flex lg:px-10 lg:w-[90%] top-9 right-0 left-0 backdrop-blur-[6px] items-center w-[95%] rounded-3xl h-24 mx-auto px-7 py-5 bg-black/50'>
@@ -87,7 +84,7 @@ export default function Header({data = [], PlusBtn, MinusBtn}) {
                                     {/* Carts Box */}
                                     <div className='absolute top-full left-0 transition-all opacity-0 invisible group-hover:opacity-100 group-hover:visible shadow-normal tracking-normal w-[400px] justify-between flex flex-col rounded-2xl border-t-[3px] border-t-orange-300 space-y-4 p-5 dark:bg-zinc-700 bg-white '>
                                         <div className="flex items-center justify-between font-DanaMedium text-xs tracking-tighter">
-                                            <p className='text-gray-300'><span className='font-DanaNum'></span>مورد</p>
+                                            <p className='text-gray-300'><span className='font-DanaNum'>{data.reduce((acc, item) => acc + item.count, 0)}</span> مورد</p>
                                             <a href="#" className='flex items-center text-orange-300'>
                                                 مشاهده سبد خرید
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
@@ -114,7 +111,7 @@ export default function Header({data = [], PlusBtn, MinusBtn}) {
                                             {/* Total price */}
                                             <div>
                                                 <p className='text-xs font-DanaMedium mb-[3px] text-gray-300 tracking-tighter'>مبلغ قابل پرداخت</p>
-                                                <h1 className='font-DanaDemiBold text-zinc-700 dark:text-white'>۳۵۰,۰۰۰ <span className='text-sm font-Dana'>تومان</span></h1>
+                                                <h1 className='font-DanaNum text-zinc-700 dark:text-white'>{data.reduce((acc, item) => acc + item.price * item.count, 0)}<span className='text-sm font-DanaDemiBold'> تومان</span></h1>
                                             </div>
                                             <a href="#" className='transition-all hover:bg-teal-700 dark:hover:bg-emerald-600 bg-teal-600 dark:bg-emerald-500 text-white rounded-2xl w-[144px] h-14 tracking-tightest flex items-center justify-center'>
                                                 ثبت سفارش
@@ -285,7 +282,7 @@ export default function Header({data = [], PlusBtn, MinusBtn}) {
                             {/* Total price */}
                             <div>
                                 <p className='text-xs font-DanaMedium mb-[3px] text-gray-300 tracking-tighter'>مبلغ قابل پرداخت</p>
-                                <h1 className='font-DanaDemiBold text-zinc-700 dark:text-white'>۳۵۰,۰۰۰ <span className='text-sm font-Dana'>تومان</span></h1>
+                                <h1 className='font-DanaDemiBold text-zinc-700 dark:text-white'>{data.reduce((acc, item) => acc + item.price * item.count, 0)}<span className='text-sm font-Dana'>تومان</span></h1>
                             </div>
                         </div>
                     </div>
