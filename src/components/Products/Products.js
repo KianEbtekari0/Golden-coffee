@@ -29,11 +29,41 @@ export default function Products() {
   }
 
   const plus = (productId) => {
-    
+        setUserBasket(prevBasket => {
+      const existingProduct = prevBasket.find(item => item.id === productId);
+
+      if (existingProduct) {
+        return prevBasket.map((item) =>
+          item.id === productId ? { ...item, count: item.count + 1 } : item
+        );
+      } else {
+        const mainProduct = products.find((product) => product.id === productId);
+        if (mainProduct) {
+          return [...prevBasket, { ...mainProduct, count: 1 }];
+        }
+      }
+
+      return prevBasket;
+    })
   }
 
   const minus = (productId) => {
-    console.log('clicked');
+      setUserBasket(prevBasket => {
+      const existingProduct = prevBasket.find(item => item.id === productId);
+
+      if (existingProduct) {
+        return prevBasket.map((item) =>
+          item.id === productId ? { ...item, count: item.count - 1 } : item
+        );
+      } else {
+        const mainProduct = products.find((product) => product.id === productId);
+        if (mainProduct) {
+          return [...prevBasket, { ...mainProduct, count: 1 }];
+        }
+      }
+
+      return prevBasket;
+    })
   }
 
   return (
