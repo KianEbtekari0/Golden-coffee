@@ -9,6 +9,7 @@ export default function Header({data = [], PlusBtn, MinusBtn}) {
     const [iconRotate, setIconRotate] = useState(false);
     const [isNavOpen, setIsNavOpen] = useState(true);
     const [isBasketOpen, setIsBasketOpen] = useState(true);
+    const [showComponent, setShowComponent] = useState(true)
 
     const darkModeBtn = () => {
         localStorage.setItem("dark", "light");
@@ -100,11 +101,22 @@ export default function Header({data = [], PlusBtn, MinusBtn}) {
                                                     <h1 className='text-zinc-700 font-DanaMedium text-base dark:text-white'>سبد خرید شما خالی است!</h1>
                                                 </div>
                                             ) : (
-                                                data.map(product => (
-                                                    <BasketProducts key={product.id} {...product} basketData={data} PlusBtnBasket={PlusBtn} MinusBtnBasket={MinusBtn} />
-                                                ))
-                                            )
-                                            }
+                                                data.length < 3 ? (
+                                                    data.map(product => (
+                                                        <BasketProducts key={product.id} {...product} basketData={data} PlusBtnBasket={PlusBtn} MinusBtnBasket={MinusBtn} />    
+                                                    ))
+                                                ) : (
+                                                    <>
+                                                        {data.map(product => (
+                                                            <BasketProducts key={product.id} {...product} />    
+                                                        ))}
+                                                        <div className='flex flex-col gap-5 items-center justify-center my-[40px]'>
+                                                            <h1 className='text-zinc-700 font-DanaMedium text-base dark:text-white'>مشاهده ادامه در سبد خرید</h1>
+                                                        </div>
+                                                    </>
+                                                )
+                                            )}
+
                                         </div>
                                         {/* Buy Btns */}
                                         <div className="flex items-center justify-between">

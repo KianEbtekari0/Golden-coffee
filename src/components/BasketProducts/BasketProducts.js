@@ -1,8 +1,7 @@
 import React from 'react'
 
 export default function BasketProducts(props) {
-
-
+    
     const PlusBtn = () => {
         props.PlusBtnBasket()
     }
