@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../../assets/app-logo.png'
 import basketImg from '../../assets/icons8-shopping-bag-94.png'
@@ -9,16 +9,19 @@ export default function Header({data = [], PlusBtn, MinusBtn}) {
     const [iconRotate, setIconRotate] = useState(false);
     const [isNavOpen, setIsNavOpen] = useState(true);
     const [isBasketOpen, setIsBasketOpen] = useState(true);
-    const [showComponent, setShowComponent] = useState(true)
+    const [theme, setTheme] = useState([]);
+
+    useEffect(() => {
+        localStorage.setItem("theme", JSON.stringify(theme));
+    } ,[theme])
 
     const darkModeBtn = () => {
-        localStorage.setItem("dark", "light");
         if (localStorage.theme === 'dark') {
             document.documentElement.classList.remove('dark');
-            localStorage.theme = 'light';
+            setTheme('light')
         } else {
             document.documentElement.classList.add("dark");
-            localStorage.theme = 'dark';
+            setTheme('dark')
         }
     };
     
