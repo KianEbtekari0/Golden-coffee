@@ -97,27 +97,18 @@ export default function Header({data = [], PlusBtn, MinusBtn, RemoveItem}) {
                                             </a>
                                         </div>
                                         {/* products */}
-                                        <div className="border-b border-b-gray-300 pb-1 dark:border-b-white/10 divide-y divide-gray-100/10 dark:divide-white/10">
+                                        <div className="border-b border-b-gray-300 pb-1 max-h-96 overflow-y-auto">
                                             {data.length === 0 ? (
                                                 <div className='flex flex-col gap-5 items-center justify-center my-[40px]'>
                                                     <img src={basketImg} alt="" />
                                                     <h1 className='text-zinc-700 font-DanaMedium text-base dark:text-white'>سبد خرید شما خالی است!</h1>
                                                 </div>
                                             ) : (
-                                                data.length < 3 ? (
-                                                    data.map(product => (
+                                                <>
+                                                    {data.map(product => (
                                                         <BasketProducts key={product.id} {...product} basketData={data} PlusBtnBasket={PlusBtn} MinusBtnBasket={MinusBtn} RemoveBtnBasket={RemoveItem} />    
-                                                    ))
-                                                ) : (
-                                                    <>
-                                                        {data.map(product => (
-                                                            <BasketProducts key={product.id} {...product} />    
-                                                        ))}
-                                                        <div className='flex flex-col gap-5 items-center justify-center my-[40px]'>
-                                                            <h1 className='text-zinc-700 font-DanaMedium text-base dark:text-white'>مشاهده ادامه در سبد خرید</h1>
-                                                        </div>
-                                                    </>
-                                                )
+                                                    ))}
+                                                </>
                                             )}
                                         </div>
                                         {/* Buy Btns */}
