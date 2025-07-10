@@ -30,7 +30,7 @@ export default function Products() {
   }
 
   const plus = (productId) => {
-        setUserBasket(prevBasket => {
+    setUserBasket(prevBasket => {
       const existingProduct = prevBasket.find(item => item.id === productId);
 
       if (existingProduct) {
@@ -49,7 +49,7 @@ export default function Products() {
   }
 
   const minus = (productId) => {
-      setUserBasket(prevBasket => {
+    setUserBasket(prevBasket => {
       const existingProduct = prevBasket.find(item => item.id === productId);
 
       if (existingProduct) {
@@ -65,6 +65,10 @@ export default function Products() {
 
       return prevBasket;
     })
+  }
+
+  const deleteProduct = (productId) => {
+    setUserBasket(prev => prev.filter(item => item.id !== productId));
   }
 
   return (
@@ -90,7 +94,7 @@ export default function Products() {
           </div>
         </div>
       </section>
-      <Header data={userBasket} PlusBtn={plus} MinusBtn={minus} />
+      <Header data={userBasket} PlusBtn={plus} MinusBtn={minus} RemoveItem={deleteProduct} />
       <BestSelling onAddProduct={addProductToBasket} />
     </>
   )

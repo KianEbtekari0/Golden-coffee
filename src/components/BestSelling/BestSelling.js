@@ -11,9 +11,6 @@ export default function BestSelling(props) {
     const clickHandler = (id) => {
         props.onAddProduct(id)
     }
-
-    console.log(props);
-    
     
     const bestSellingProducts = Datas.filter(data => {
         return data.BestSelling === true
@@ -58,7 +55,7 @@ export default function BestSelling(props) {
                         spaceBetween: 20,
                     },
                     }}
-                    className='mySwiper -z-10 dark:text-white'
+                    className='mySwiper dark:text-white pointer-events-auto'
                 >
                     {bestSellingProducts.map(product => (
                         <SwiperSlide>
@@ -96,7 +93,7 @@ export default function BestSelling(props) {
                                     </svg>
                                     </div>
                                 </div>
-                                </div>
+                            </div>
                         </SwiperSlide>
                     ))}
                 </Swiper>

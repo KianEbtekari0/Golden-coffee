@@ -4,7 +4,7 @@ import Logo from '../../assets/app-logo.png'
 import basketImg from '../../assets/icons8-shopping-bag-94.png'
 import BasketProducts from '../BasketProducts/BasketProducts'
 
-export default function Header({data = [], PlusBtn, MinusBtn}) {
+export default function Header({data = [], PlusBtn, MinusBtn, RemoveItem}) {
     const [active, setActive] = useState(false);
     const [iconRotate, setIconRotate] = useState(false);
     const [isNavOpen, setIsNavOpen] = useState(true);
@@ -106,7 +106,7 @@ export default function Header({data = [], PlusBtn, MinusBtn}) {
                                             ) : (
                                                 data.length < 3 ? (
                                                     data.map(product => (
-                                                        <BasketProducts key={product.id} {...product} basketData={data} PlusBtnBasket={PlusBtn} MinusBtnBasket={MinusBtn} />    
+                                                        <BasketProducts key={product.id} {...product} basketData={data} PlusBtnBasket={PlusBtn} MinusBtnBasket={MinusBtn} RemoveBtnBasket={RemoveItem} />    
                                                     ))
                                                 ) : (
                                                     <>
@@ -119,7 +119,6 @@ export default function Header({data = [], PlusBtn, MinusBtn}) {
                                                     </>
                                                 )
                                             )}
-
                                         </div>
                                         {/* Buy Btns */}
                                         <div className="flex items-center justify-between">
