@@ -1,10 +1,10 @@
 import React from 'react'
-import Products from '../Products/Products'
-import ProductsCategory from '../ProductsCategory/ProductsCategory'
-import CoffeeClub from '../CoffeeClub/CoffeeClub'
-import ContactUs from '../ContactUs/ContactUs'
-import Support from '../Support/Support'
-import Footer from '../Footer/Footer'
+import Products from '../../components/Products/Products'
+import ProductsCategory from '../../pages/ProductsCategory/ProductsCategory'
+import CoffeeClub from '../../pages/CoffeeClub/CoffeeClub'
+import ContactUs from '../../pages/ContactUs/ContactUs'
+import Support from '../../pages/Support/Support'
+import Footer from '../../components/Footer/Footer'
 
 export default function Main() {
   return (

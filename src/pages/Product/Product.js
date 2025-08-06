@@ -1,5 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router'
+import img1 from '../../assets/products/p1.png'
+import img2 from '../../assets/products/p2.png'
+import img3 from '../../assets/products/p3.png'
+import img4 from '../../assets/products/p4.png'
+import img5 from '../../assets/products/p5.png'
+import img6 from '../../assets/products/p6.png'
+import img7 from '../../assets/products/p7.png'
+import img8 from '../../assets/products/p8.png'
 
 export default function Product(props) {
 
@@ -7,11 +15,18 @@ export default function Product(props) {
     props.onAddProduct(id)
   }
 
+  const images = [
+    img1,
+    img2,
+    img3,
+    img4,
+  ]
+
   return (
     <div className='flex flex-col justify-between dark:bg-zinc-700 bg-white p-2 md:p-5 shadow-normal rounded-2xl'>
       <Link to={`/product/${props.id}`}>
       <div className="flex items-center justify-center">
-        <img src={props.img} />
+        <img src={images.map(image => image)} />
       </div>
       <div>
         <h1 className='font-DanaMedium text-sm md:text-base'>{props.description}</h1>

@@ -1,14 +1,22 @@
-import React, { useState } from 'react'
-import Product from '../Product/Product'
+import { useState, useEffect } from 'react'
+import Product from '../../pages/Product/Product'
 import Header from '../Header/Header'
-import Datas from '../../Datas'
-import BestSelling from '../BestSelling/BestSelling'
+import BestSelling from '../../pages/BestSelling/BestSelling'
+import axios from 'axios'
 
 export default function Products() {
-
-  const [products, setProducts] = useState(Datas)
-
+  const [products, setProducts] = useState([])
   const [userBasket, setUserBasket] = useState([])
+  
+  useEffect(() => {
+    axios.get('https://gold-coffee-d2f13-default-rtdb.firebaseio.com/menu.json')
+      .then(response => {
+        setProducts(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching products:', error);
+      });
+  }, []);
 
   const addProductToBasket = (productId) => {
     setUserBasket(prevBasket => {
@@ -19,7 +27,7 @@ export default function Products() {
           item.id === productId ? { ...item, count: item.count + 1 } : item
         );
       } else {
-        const mainProduct = products.find((product) => product.id === productId);
+        const mainProduct = Object.entries(products).find((product) => product.id === productId);
         if (mainProduct) {
           return [...prevBasket, { ...mainProduct, count: 1 }];
         }
@@ -28,6 +36,8 @@ export default function Products() {
       return prevBasket;
     })
   }
+
+  console.log(userBasket);
 
   const plus = (productId) => {
     setUserBasket(prevBasket => {
@@ -38,7 +48,7 @@ export default function Products() {
           item.id === productId ? { ...item, count: item.count + 1 } : item
         );
       } else {
-        const mainProduct = products.find((product) => product.id === productId);
+        const mainProduct = Object.entries(products).find((product) => product.id === productId);
         if (mainProduct) {
           return [...prevBasket, { ...mainProduct, count: 1 }];
         }
@@ -57,7 +67,7 @@ export default function Products() {
           item.id === productId ? { ...item, count: item.count - 1 } : item
         );
       } else {
-        const mainProduct = products.find((product) => product.id === productId);
+        const mainProduct = Object.entries(products).find((product) => product.id === productId);
         if (mainProduct) {
           return [...prevBasket, { ...mainProduct, count: 1 }];
         }
@@ -88,8 +98,8 @@ export default function Products() {
               </div>
           </div>
           <div className="dark:text-white grid px-3 grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4 xl:gap-x-8">
-            {products.map(product => (
-              <Product key={product.id} {...product} onAddProduct={addProductToBasket} />
+            {Object.entries(products).map(([key, product]) => (
+              <Product key={key} {...product} onAddProduct={addProductToBasket} />
             ))}
           </div>
         </div>

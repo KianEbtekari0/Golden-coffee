@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../Header/Header'
+import Header from '../../components/Header/Header'
 import telegramImg from '../../assets/svgs/telegram.svg'
 import logoTypeImg from '../../assets/svgs/logo-type.svg'
 import logoImg from '../../assets/svgs/logo.svg'
