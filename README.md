@@ -34,7 +34,7 @@
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
    ```bash
     # Clone this repository
-    $ git clone https://github.com/username/coffee-shop.git
+    $ git clone https://github.com/KianEbtekari0/Golden-coffee.git
     
     # Go into the repository
     $ cd coffee-shop
