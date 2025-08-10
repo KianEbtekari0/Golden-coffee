@@ -1,6 +1,5 @@
-import React from 'react';
 import { useRoutes } from 'react-router-dom';
-
+import { AuthProvider } from './AuthContext'
 import Routes from './Routes';
 import './App.css';
 
@@ -10,7 +9,9 @@ function App() {
 
   return (
     <>
-      {router}
+      <AuthProvider>
+        {router}
+      </AuthProvider>
     </>
   );
 }
